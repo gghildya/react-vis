@@ -31,7 +31,9 @@ const predefinedClassName = 'rv-xy-plot__series rv-xy-plot__series--mark';
 class MarkSeries extends AbstractSeries {
 
   render() {
-    const {animation, className, data, marginLeft, marginTop} = this.props;
+    const {
+      animation, className, data, marginLeft, marginTop, style
+    } = this.props;
     if (!data) {
       return null;
     }
@@ -62,6 +64,7 @@ class MarkSeries extends AbstractSeries {
             cx: xFunctor(d),
             cy: yFunctor(d),
             style: {
+              ...style,
               opacity: opacityFunctor ? opacityFunctor(d) : DEFAULT_OPACITY,
               stroke: strokeFunctor && strokeFunctor(d),
               fill: fillFunctor && fillFunctor(d)

@@ -77,7 +77,9 @@ class LineSeries extends AbstractSeries {
       );
     }
 
-    const {strokeStyle, strokeWidth, marginLeft, marginTop, curve} = this.props;
+    const {
+      strokeStyle, strokeWidth, marginLeft, marginTop, curve, style
+    } = this.props;
 
     const x = this._getAttributeFunctor('x');
     const y = this._getAttributeFunctor('y');
@@ -96,8 +98,9 @@ class LineSeries extends AbstractSeries {
         onMouseOut={this._seriesMouseOutHandler}
         onClick={this._seriesClickHandler}
         style={{
-          opacity,
           strokeDasharray: STROKE_STYLES[strokeStyle],
+          ...style,
+          opacity,
           strokeWidth,
           stroke
         }}/>

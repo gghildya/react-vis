@@ -46,6 +46,7 @@ const propTypes = {
   onSeriesMouseOut: React.PropTypes.func,
   onSeriesClick: React.PropTypes.func,
   onNearestX: React.PropTypes.func,
+  style: React.PropTypes.object,
   animation: AnimationPropType
 };
 
