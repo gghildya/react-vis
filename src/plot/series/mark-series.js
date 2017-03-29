@@ -64,10 +64,10 @@ class MarkSeries extends AbstractSeries {
             cx: xFunctor(d),
             cy: yFunctor(d),
             style: {
-              ...style,
               opacity: opacityFunctor ? opacityFunctor(d) : DEFAULT_OPACITY,
               stroke: strokeFunctor && strokeFunctor(d),
-              fill: fillFunctor && fillFunctor(d)
+              fill: fillFunctor && fillFunctor(d),
+              ...style
             },
             key: i,
             onClick: e => this._valueClickHandler(d, e),

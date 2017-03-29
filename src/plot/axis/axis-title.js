@@ -30,36 +30,37 @@ const propTypes = {
   orientation: React.PropTypes.oneOf([
     LEFT, RIGHT, TOP, BOTTOM
   ]).isRequired,
+  style: React.PropTypes.object,
   title: React.PropTypes.string.isRequired
 };
 
-function AxisTitle({orientation, width, height, title}) {
+function AxisTitle({orientation, width, height, style, title}) {
   const x = orientation === LEFT ? width : 0;
   const y = orientation === TOP ? height : 0;
-  let style;
+  let styleFromOrientation;
   if (orientation === LEFT) {
-    style = {
+    styleFromOrientation = {
       transform: 'translate(1em, 0) rotate(-90deg)',
       textAnchor: 'end'
     };
   } else if (orientation === RIGHT) {
-    style = {
+    styleFromOrientation = {
       transform: `translate(-0.5em, ${height}px) rotate(-90deg)`,
       textAnchor: 'start'
     };
   } else if (orientation === BOTTOM) {
-    style = {
+    styleFromOrientation = {
       transform: `translate(${width}px, -6px)`,
       textAnchor: 'end'
     };
   } else {
-    style = {
+    styleFromOrientation = {
       transform: 'translate(0px, 1em)'
     };
   }
   return (
     <g transform={`translate(${x}, ${y})`} className="rv-xy-plot__axis__title">
-      <g style={style}>
+      <g style={{...styleFromOrientation, ...style}}>
         <text>{title}</text>
       </g>
     </g>

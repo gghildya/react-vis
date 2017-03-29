@@ -99,10 +99,10 @@ class LineSeries extends AbstractSeries {
         onClick={this._seriesClickHandler}
         style={{
           strokeDasharray: STROKE_STYLES[strokeStyle],
-          ...style,
           opacity,
           strokeWidth,
-          stroke
+          stroke,
+          ...style
         }}/>
     );
   }
